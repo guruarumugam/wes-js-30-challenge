@@ -9,3 +9,7 @@ Also to give a journal view to any others who might be looking to do something s
 Thanks again.
 
 ## Day 1
+
+
+###Solution
+[link](https://guruarumugam.github.io/wes-js-30-challenge/wes-js-30-challenge/01-Javascript-Drum-Kit)
