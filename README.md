@@ -1,4 +1,6 @@
-#Wes Bos - Javascript 30 challenge
+# Wes Bos - Javascript 30 challenge
+
+## Introduction
 I was recently asked by my friend to take on this challenge. So I decided to do this for two reasons,
 
 - one is the ability to do these with vanilla JS
