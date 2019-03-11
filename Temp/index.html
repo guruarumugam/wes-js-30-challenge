@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Temporary Page for testing</title>
+</head>
+<body>
+    <div>
+        <p>Temp section to test Query Selection</p>
+        <p class="warning bubble">test para 1</p>
+        <p class="note">this is para with class of note</p>
+        <p id="basic">this is para with id of basic</p>
+        <p id="main">this is para with id of main</p>
+        <p id="exclamation">this is a para with id of exclamation</p>
+    </div>
+    <div>
+        <p>Temp Section to test the add event listener</p>
+        <table id="outside">
+            <tr><td id="t1">one</td></tr>
+            <tr><td id="t2">two</td></tr>
+        </table>
+    </div>
+    <script>
+        var special = document.querySelector("p.warning")
+        special.classList.replace("bubble", "anotheclass")
+        console.log(special)
+        // Function to change the content of t2
+            function modifyText() {
+                var t2 = document.getElementById("t2");
+                if (t2.firstChild.nodeValue == "three") {
+                    t2.firstChild.nodeValue = "two";
+                } else {
+                    t2.firstChild.nodeValue = "three";
+                }
+            }
+
+        // Add event listener to table
+            var el = document.getElementById("outside");
+            el.addEventListener("click", modifyText);
+
+
+
+    </script>
+</body>
+</body>
+</html>
