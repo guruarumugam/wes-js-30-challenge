@@ -28,11 +28,51 @@
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = [];
+  const items = JSON.parse(localStorage.getItem('foodItems')) || [];
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    item = (this.querySelector('[name=item]')).value;
+    items.push( {
+      'text': `${item}`,
+      'done': false,
+    })
+    updatePlatesList(items, itemsList)
+    populateToList(items)
+    addItems.reset();
+  }
+
+  function updatePlatesList(fooditems = [], platesList) {
+    platesList.innerHTML = fooditems.map((fooditem, i) => {
+      return `
+        <li>
+          <input type="checkbox" data-index=${i} id="item${i}" ${fooditem.done ? 'checked' : ''} />
+          <label for="item${i}">${fooditem.text}</label>
+         </li>
+      `
+    }).join('')
+  }
+
+  function populateToList(fooditems) {
+    localStorage.setItem('foodItems', JSON.stringify(fooditems))
+  }
+
+  function readFromList(){
+    items = JSON.parse(localStorage.getItem('foodItems'))
+    console.log(items)
+  }
+
+  function updateDone(e) {
+    if(!e.target.matches('input')) return
+    items[e.target.dataset.index].done = !items[e.target.dataset.index].done
+    populateToList(items)
+  }
+
+  addItems.addEventListener('submit', handleSubmit)
+  itemsList.addEventListener('click', updateDone)
+  updatePlatesList(items, itemsList)
 </script>
 
 
 </body>
 </html>
-
